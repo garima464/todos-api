@@ -75,7 +75,7 @@ export class UsersService {
       }
     }
     if(updateUserDto.password){
-      updateUserDto.password = await hash(this.updateUserDto.password, 10)
+      updateUserDto.password = await hash(updateUserDto.password, 10)
     }
     return this.prisma.user.update({
       where: {id},
